@@ -2,8 +2,7 @@ import { useState } from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
-import About from './components/About';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+// import About from './components/About';
 
 function App() {
   const [mode, setMode] = useState('light');
@@ -21,7 +20,13 @@ function App() {
   };
 
   return (
-    <Router>
+    <>
+      <Navbar title="Text Utils" aboutText="About Text Utils" mode={mode} toggleMode={toggleMode} />
+      <div className="container my-3">
+        <TextForm heading="Enter your text below" mode={mode} />
+        {/* <About /> */}
+      </div>
+      {/* <Router>
       <Navbar title="Text Utils" aboutText="About Text Utils" mode={mode} toggleMode={toggleMode} />
       <div className="container my-3">
         <Routes>
@@ -29,7 +34,8 @@ function App() {
           <Route exact path="/" element={<TextForm heading="Enter your text below" mode={mode} />} />
         </Routes>
       </div>
-    </Router>
+    </Router> */}
+    </>
   );
 }
 
